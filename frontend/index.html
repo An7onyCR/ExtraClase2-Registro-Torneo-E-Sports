@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Equipos - Torneo R6</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Torneo Rainbow Six Siege</h1>
+        
+        <div id="team-container">
+            <form id="team-form">
+                <input type="text" id="team-name" placeholder="Nombre del equipo" required>
+                <textarea id="team-members" placeholder="Miembros (separados por coma)" required></textarea>
+                <button type="submit" id="submit-button">Registrar Equipo</button>
+                <button type="button" id="cancel-edit" style="display: none; background-color: #dc3545;">Cancelar</button>
+            </form>
+        </div>
+        
+        <h2>Equipos Registrados</h2>
+        <div id="teams-list"></div>
+        
+        <div id="edit-member-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Editar Miembro</h3>
+                <form id="edit-member-form">
+                    <input type="hidden" id="edit-team-id">
+                    <input type="hidden" id="edit-member-index">
+                    <input type="text" id="edit-member-name" placeholder="Nombre del miembro" required>
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+        
+        <h2>Bracket del Torneo</h2>
+        <button id="generate-bracket">Generar Bracket</button>
+        <div id="bracket"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
